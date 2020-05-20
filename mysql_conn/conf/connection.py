@@ -9,10 +9,8 @@ class DBConnection:
 
     
     def connect(self):
-       
         try:
             credentials = get_db_credentials()
-            print(credentials)
             self.__connection = mysql.connector.connect(
                 host=credentials['HOST'],
                 database=credentials['DB'],
@@ -20,14 +18,12 @@ class DBConnection:
                 password = credentials['PASSWORD']
             )
             if self.__connection.is_connected():
-                db_Info = self.__connection.get_server_info()
-                print("Connected to MySQL Server version ", db_Info)
                 self.__cursor = self.__connection.cursor()
         except Error as error:
             print(error)
     
     def get_connection(self):
-        return self.get_connection
+        return self.__connection
 
     def execute_query(self, stmts):
         try:
