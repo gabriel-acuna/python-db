@@ -1,2 +1,3 @@
 # enviroment vars
 mysql_conn/conf/.env
+mysql_orm/conf/.env
